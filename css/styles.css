@@ -342,22 +342,37 @@ body {
   margin-top: 0.4rem;
 }
 
-.project-reels {
+.reel-carousel {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
 }
 
-.reel-embed {
-  flex: 0 1 320px;
-  max-width: 340px;
+.reel-carousel::-webkit-scrollbar {
+  display: none;
 }
 
-.reel-embed .instagram-media {
-  margin: 0 !important;
-  min-width: 0 !important;
-  width: 100% !important;
+.reel-card {
+  flex: 0 0 300px;
+  height: 535px;
+  scroll-snap-align: center;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  background: #000;
+}
+
+.reel-card iframe {
+  position: absolute;
+  top: -64px;
+  left: -1px;
+  width: 302px;
+  height: 680px;
+  border: none;
 }
 
 /* ──────────────── Gallery ──────────────── */
