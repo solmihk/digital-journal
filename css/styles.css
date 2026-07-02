@@ -358,7 +358,7 @@ body {
 
 .reel-card {
   flex: 0 0 300px;
-  height: 535px;
+  height: 480px;
   scroll-snap-align: center;
   overflow: hidden;
   border-radius: 8px;
@@ -371,7 +371,7 @@ body {
   top: -64px;
   left: -1px;
   width: 302px;
-  height: 680px;
+  height: 900px;
   border: none;
 }
 
