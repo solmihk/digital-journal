@@ -342,6 +342,24 @@ body {
   margin-top: 0.4rem;
 }
 
+.project-reels {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reel-embed {
+  flex: 0 1 320px;
+  max-width: 340px;
+}
+
+.reel-embed .instagram-media {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
 /* ──────────────── Gallery ──────────────── */
 
 .gallery-section {
