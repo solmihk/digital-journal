@@ -1,0 +1,354 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+/* ──────────────── Top Navigation ──────────────── */
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.2rem 1.8rem;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.top-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  transition: opacity 0.2s;
+}
+
+.top-nav a:hover {
+  opacity: 0.5;
+}
+
+.logo {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.2 !important;
+}
+
+.nav-center-left,
+.nav-center-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-right {
+  text-align: right;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.nav-clock {
+  font-size: 0.75rem;
+}
+
+/* ──────────────── Hero Section ──────────────── */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.side-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.side-label.left { left: 1.8rem; }
+.side-label.right { right: 1.8rem; }
+
+/* ──────────────── Book Scene ──────────────── */
+
+.book-scene {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: #000;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ──────────────── 3D Book ──────────────── */
+
+.book-wrapper {
+  position: relative;
+  width: 560px;
+  height: 400px;
+}
+
+.book-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 2200px;
+}
+
+/* ──────────────── Fan Pages ──────────────── */
+
+.fan-page {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: 0;
+  transform-origin: 0% 50%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.0);
+  will-change: transform;
+}
+
+.page-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.page-face.back {
+  transform: rotateY(180deg);
+}
+
+/* ──────────────── Click Zones ──────────────── */
+
+.flip-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 40;
+  cursor: pointer;
+}
+
+.flip-left {
+  left: 0;
+  cursor: w-resize;
+}
+
+.flip-right {
+  right: 0;
+  cursor: e-resize;
+}
+
+/* ──────────────── Page Indicator ──────────────── */
+
+.page-indicator {
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #999;
+}
+
+/* ──────────────── Scroll Prompt ──────────────── */
+
+.scroll-prompt {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #000;
+  cursor: pointer;
+  animation: promptPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes promptPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ──────────────── Content Sections ──────────────── */
+
+.work-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #eee;
+  padding: 4rem 2rem;
+}
+
+.section-inner {
+  max-width: 600px;
+  text-align: center;
+}
+
+.section-number {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #999;
+  margin-bottom: 1.5rem;
+}
+
+.section-inner h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.section-inner p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.section-inner p a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.2s;
+}
+
+.section-inner p a:hover {
+  border-color: #000;
+}
+
+/* ──────────────── About Layout ──────────────── */
+
+.about-layout {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px;
+  text-align: left;
+}
+
+.about-photo {
+  flex-shrink: 0;
+  width: 240px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(10%);
+}
+
+.about-text h2 {
+  text-align: left;
+}
+
+.about-text p {
+  text-align: left;
+}
+
+/* ──────────────── Responsive ──────────────── */
+
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 1rem 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .logo { font-size: 1rem !important; }
+
+  .nav-center-left,
+  .nav-center-right { display: none; }
+
+  .side-label { font-size: 0.65rem; }
+  .side-label.left { left: 1rem; }
+  .side-label.right { right: 1rem; }
+
+  .about-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo {
+    width: 180px;
+    height: 220px;
+  }
+
+  .about-text h2,
+  .about-text p {
+    text-align: center;
+  }
+
+  .book-wrapper {
+    width: 380px;
+    height: 300px;
+  }
+
+  .fan-page {
+    width: 170px;
+    height: 230px;
+    margin-top: -115px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-wrapper {
+    width: 300px;
+    height: 260px;
+  }
+
+  .fan-page {
+    width: 135px;
+    height: 190px;
+    margin-top: -95px;
+  }
+
+  .side-label { display: none; }
+
+  .welcome-text { font-size: 0.75rem; }
+}
