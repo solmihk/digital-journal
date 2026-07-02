@@ -3,13 +3,15 @@
   var clockEl = document.getElementById('navClock');
   function updateClock() {
     var now = new Date();
-    var h = String(now.getHours()).padStart(2, '0');
-    var m = String(now.getMinutes()).padStart(2, '0');
-    var s = String(now.getSeconds()).padStart(2, '0');
-    var offset = -now.getTimezoneOffset();
-    var sign = offset >= 0 ? '+' : '-';
-    var offH = Math.floor(Math.abs(offset) / 60);
-    clockEl.textContent = h + ':' + m + ':' + s + ' GMT' + sign + offH;
+    var pst = now.toLocaleString('en-US', {
+      timeZone: 'America/Los_Angeles',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+    var isDST = now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles', timeZoneName: 'short' }).includes('PDT');
+    clockEl.textContent = pst + ' ' + (isDST ? 'PDT' : 'PST');
   }
   updateClock();
   setInterval(updateClock, 1000);
